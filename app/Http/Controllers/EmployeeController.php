@@ -50,8 +50,8 @@ class EmployeeController extends Controller
      */
     public function edit(employee $form)
     {
-        dd($form);
-        // dd(employee::find($id));
+        //dd($form);
+        $employee = $form;
         return view('form', ['employee' => $form]);
     }
 
