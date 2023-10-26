@@ -11,23 +11,27 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Phone Number</th>
-                <th>Email</th>
-                <th>Birthdate</th>
-                <th>Action</th> 
+                <th>Item Type</th>
+                <th>Item Description</th>
+                <th>Item Defect</th>
+                <th>Item Amount</th>
+                <th>Item Image</th> 
+                <th>Item Type</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($employees as $employee)
+            @foreach($inventories as $inventory)
             <tr>
-                <td>{{ $employee->name }}</td>
-                <td>{{ $employee->phone_number }}</td>
-                <td>{{ $employee->email }}</td>
-                <td>{{ $employee->birthdate }}</td>
+                <td>{{ $inventory->item_type }}</td>
+                <td>{{ $inventory->item_description}}</td>
+                <td>{{ $inventory->item_defect }}</td>
+                <td>{{ $inventory->item_amount }}</td>
+                <td>{{ $inventory->item_image }}</td>
+                <td>{{ $inventory->item_type }}</td>
                 <td>
-                    <a href="{{ route('form.edit', $employee->id) }}" class="btn btn-primary">Edit</a>
-                    <form action="{{ route('form.destroy', $employee->id) }}" method="post">
+                    <a href="{{ route('form.edit', $inventory->id) }}" class="btn btn-primary">Edit</a>
+                    <form action="{{ route('form.destroy', $inventory->id) }}" method="post">
                     @method('DELETE')
                     @csrf
                     <button type="submit">Delete</button>
